@@ -1,5 +1,5 @@
 import scala.io.Source
-import models._
+import Models._
 import org.json4s._  
 import org.json4s.jackson.JsonMethods._  // this lets us use parse() to turn a JSON string into a usable object
 
