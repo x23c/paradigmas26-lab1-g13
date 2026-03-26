@@ -8,11 +8,11 @@ object Main {
 
     val allPosts: List[(String, String)] = subscriptions.map { case (name, url) =>
       println(s"Fetching posts from: $url")
-      val stringFeed = FileIO.downloadFeed(url)
-      val posts = Parser.parseRedditFeed(stringFeed).filter { case (_, title, selftext, _) =>
-        title.nonEmpty && selftext.nonEmpty && selftext.trim.nonEmpty
-      }
-      (url, posts.map(Formatters.formatPost).mkString("\n\n"))
+      
+      val posts = FileIO.downloadFeed(url)
+      .flatMap(Parser.parseRedditFeed)
+      .map(_.filter{ case (_,title,selftext,_)=> title.nonEmpty && selftext.nonEmpty && selftext.trim.nonEmpty})
+      .getOrElse(List())
       //Aca filtre el resultado del parser con la funcion de alto orden filter 
       //y los 3 parametros q puse son en orden para cuando no tiene titulo, no tiene texto y cuando el texto es vacio
     }
