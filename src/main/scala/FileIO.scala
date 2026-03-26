@@ -7,7 +7,7 @@ object FileIO {
   implicit val formats: Formats = DefaultFormats  // needed by json4s to convert JSON values into Scala types like String (extract[String])
   
   // Pure function to read subscriptions from a JSON file
-  def readSubscriptions(): List[Subscription] = {  // returns a list of type Subscriptions
+  def readSubscriptions(): Option[List[Subscription]] = {  // returns a list of type Subscriptions
 
     // opens the file at the given path and creates a Source object to read its contents
     val source = Source.fromFile("subscriptions.json")
@@ -31,7 +31,7 @@ object FileIO {
   }
 
   // Pure function to download JSON feed from a URL
-  def downloadFeed(url: String): String = {
+  def downloadFeed(url: String): Option[String] = {
     val source = Source.fromURL(url)
     source.mkString
   }
