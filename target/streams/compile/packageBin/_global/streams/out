@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/rss-parser_2.13-0.1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FileIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/FileIO.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Formatters$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Formatters$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Models$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Parser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Parser$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Formatters.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Formatters.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	FileIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/FileIO$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Models.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Models.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/target/scala-2.13/classes/Parser.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
