@@ -21,6 +21,14 @@ object Main {
       .map { case (url, posts) => Formatters.formatSubscription(url, posts) }
       .mkString("\n")
 
+    val wordCounts = WordsAnalyzer.contarFrecuencias(
+      WordsAnalyzer.filtrarPalabrasMayus(
+        WordsAnalyzer.extraerPalabras(output)  
+      )
+    )
+
     println(output)
+    println("\nPalabras mas frecuentes (no stopwords):")
+    println(wordCounts.map { case (word, count) => s"$word: $count" }.mkString("\n"))
   }
 }
