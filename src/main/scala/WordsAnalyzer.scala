@@ -3,7 +3,7 @@ import Models._
 object WordsAnalyzer {
 
   // Lista de stopwords
-  private val stopwords: Set[String] = Set(
+  val stopwords: Set[String] = Set(
     "the", "about", "above", "after", "again", "against", "all", "am", "an",
     "and", "any", "are", "aren't", "as", "at", "be", "because", "been",
     "before", "being", "below", "between", "both", "but", "by", "can't",
@@ -27,11 +27,8 @@ object WordsAnalyzer {
     "yourself", "yourselves"
   )
 
-  // Tipo para representar frecuencias: (palabra, cantidad)
-  type PalabraFrequencia = (String, Int)
-
   // Divide el texto en palabras removiendo caracteres especiales
-  private def extraerPalabras(texto: String): List[String] = {
+  def extraerPalabras(texto: String): List[String] = {
     texto
       .split("[\\s\\p{P}]+")  // Divide por espacios y puntuación
       .filter(_.nonEmpty)     // Elimina strings vacíos
@@ -39,17 +36,19 @@ object WordsAnalyzer {
   }
 
   // Filtra palabras que comienzan con mayuscula y no estan en stopwords
-  private def filtrarPalabrasMayus(palabras: List[String]): List[String] = {
+  def filtrarPalabrasMayus(palabras: List[String]): List[String] = {
     palabras.filter { palabra =>
       // Verifica que comience con mayuscula y no sea vacia
       palabra.nonEmpty && palabra.head.isUpper &&
       // Verifica que no sea stopword comparando en minuscula
-      !stopwords.contains(palabra.toLowerCase)
+      !stopwords.contains(palabra.toLowerCase) &&
+      // Verifica que no sea "Titulo", "Contenido", "Fecha" o "Subreddit"
+      !Set("Titulo", "Contenido", "Fecha", "Subreddit").contains(palabra)
     }
   }
 
   // Agrupa palabras equivalentes y cuenta ocurrencias
-  private def contarFrecuencias(palabras: List[String]): List[PalabraFrequencia] = {
+  def contarFrecuencias(palabras: List[String]): List[PalabraFrequencia] = {
     palabras
       .groupBy(_.toLowerCase)      // groupBy: agrupa por la palabra en minusculas
       .map { case (palabra, grupo) =>
