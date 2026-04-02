@@ -10,7 +10,7 @@ object Parser {
     // Como convertir JSON a objetos de Scala
     implicit val formats: Formats = DefaultFormats
 
-    def parseRedditFeed(stringFeed: String): List[Post] = {
+    def parseRedditFeed(stringFeed: String): Option[List[Post] ]= {
         
         // Ejemplo del Feed ya parseado:
         // '{"data": {"children": [{"data": {"subreddit": "scala", "title": "Hola", "selftext": "texto", "created_utc": 123}]}}'
@@ -21,20 +21,23 @@ object Parser {
         // dentro del campo data, extraigo los campos subreddit, title, selftext y created_utc
         // devuelve un Post con esos campos
         // extractOpt devuelve una Option, getOrElse devuelve el valor o un valor por defecto si no existe
-        def extractPost(child: JValue): Post = {
+        def extractPost(child: JValue): Option[Post] = {
             val data = child \ "data"
-    
-            val subreddit = (data \ "subreddit").extractOpt[String].getOrElse("")
-            val title = (data \ "title").extractOpt[String].getOrElse("")
-            val selftext = (data \ "selftext").extractOpt[String].getOrElse("")
-            val createdUtc = (data \ "created_utc").extractOpt[Long].getOrElse(0L)
 
+            for{
+                subreddit <- (data \ "subreddit").extractOpt[String]
+                title <- (data \ "title").extractOpt[String]
+                selftext <- (data \ "selftext").extractOpt[String]
+                createdUtc <- (data \ "created_utc").extractOpt[Long]
+            } yield {
             // Formato de la fecha a una forma legible
             val formattedDate = Instant.ofEpochSecond(createdUtc)
                 .atZone(ZoneId.of("UTC"))
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
 
             Models.createPost(subreddit, title, selftext, formattedDate)
+            }
+
         }
   
         // Función auxiliar para obtener el array children
@@ -55,11 +58,7 @@ object Parser {
         .toOption
         .map { jsonFeed =>
             val children = getChildren(jsonFeed)
-            children.map(extractPost)
-        }
-        .getOrElse {
-            println("Error: No se pudo parsear el string Feed.")
-            List.empty[Post]
+            children.flatMap(extractPost)
         }
     }
 }   
