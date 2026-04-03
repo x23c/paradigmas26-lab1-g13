@@ -13,12 +13,12 @@ object Parser {
     def parseRedditFeed(stringFeed: String): Option[List[Post] ]= {
         
         // Ejemplo del Feed ya parseado:
-        // '{"data": {"children": [{"data": {"subreddit": "scala", "title": "Hola", "selftext": "texto", "created_utc": 123}]}}'
+        // '{"data": {"children": [{"data": {"subreddit": "scala", "title": "Hola", "selftext": "texto", "created_utc": 123, "score": 6, "url": ...}]}}'
 
         // Función auxiliar para extraer un post de la List[JValue]
         // child es UN objeto JSON dentro de List[JValue]
         // "\" es el operador de navegacion de JSON
-        // dentro del campo data, extraigo los campos subreddit, title, selftext y created_utc
+        // dentro del campo data, extraigo los campos subreddit, title, selftext, created_utc, score y url
         // devuelve un Post con esos campos
         // extractOpt devuelve una Option, getOrElse devuelve el valor o un valor por defecto si no existe
         def extractPost(child: JValue): Option[Post] = {
@@ -29,13 +29,15 @@ object Parser {
                 title <- (data \ "title").extractOpt[String]
                 selftext <- (data \ "selftext").extractOpt[String]
                 createdUtc <- (data \ "created_utc").extractOpt[Long]
+                score <- (data \ "score").extractOpt[Int]
+                url <- (data \ "url").extractOpt[String]
             } yield {
             // Formato de la fecha a una forma legible
             val formattedDate = Instant.ofEpochSecond(createdUtc)
                 .atZone(ZoneId.of("UTC"))
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
 
-            Models.createPost(subreddit, title, selftext, formattedDate)
+            Models.createPost(subreddit, title, selftext, formattedDate, score, url)
             }
 
         }

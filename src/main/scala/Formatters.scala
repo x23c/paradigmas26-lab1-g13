@@ -11,7 +11,7 @@ object Formatters {
 
   // Formato de cada post
   def formatPost(post: Post): String = {
-    val (subreddit, title, selftext, date) = post
+    val (subreddit, title, selftext, date, score, url) = post
     
     s"""
        |${"-" * 80}
@@ -19,6 +19,8 @@ object Formatters {
        |Titulo: $title
        |Contenido: ${selftext.take(150)}
        |Fecha: $date
+       |Puntuación: $score
+       |Url: $url
        |${"-" * 80}""".stripMargin
   }
 }
