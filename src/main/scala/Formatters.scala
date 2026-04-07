@@ -23,4 +23,25 @@ object Formatters {
        |Url: $url
        |${"-" * 80}""".stripMargin
   }
+
+  // Formatea los top 5 posts para mostrar
+  def formatTop5Posts(posts: List[(String, String, String, String, Int, String)]): String = {
+    posts.take(5).map { post => 
+      val (_, title, _, date, _, url) = post
+      s"Titulo: $title\nFecha: $date\nURL: $url"
+    }.mkString("\n\n")
+  }
+
+  // Construye el texto final de la suscripción
+  def buildSubscriptionText(name: String, totalScore: Int, top5words: String, top5posts: String): String = {
+    s"""
+      |Subscription: $name 
+      |Total score: $totalScore
+      |Top 5 words: $top5words
+      |
+      |Top 5 posts: 
+      |$top5posts
+      |
+      |""".stripMargin
+  }
 }

@@ -57,4 +57,14 @@ object WordsAnalyzer {
       .toList
       .sortBy(-_._2)              // Ordena por frecuencia descendente
   }
+
+  // Analiza y obtiene las top 5 palabras más frecuentes
+  def analyzeTopWords(posts: List[(String, String, String, String, Int, String)]): String = {
+    val texts = posts.map(post => post._2 + " " + post._3)
+    val words = texts.flatMap(WordsAnalyzer.extraerPalabras)
+    val filteredWords = WordsAnalyzer.filtrarPalabrasMayus(words)
+    val wordFrequencies = WordsAnalyzer.contarFrecuencias(filteredWords)
+    
+    wordFrequencies.take(5).map { case (w, c) => s"$w: $c" }.mkString(", ")
+  }
 }
