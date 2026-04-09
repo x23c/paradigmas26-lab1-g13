@@ -1,0 +1,13 @@
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:10:39: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : models.Types.Subscription[0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  (String, String)[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m      val posts = FileIO.downloadFeed(url)[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:11:8: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : models.Types.Subscription[0m
+[0m[[0m[31merror[0m] [0m[0m    (which expands to)  (String, String)[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m      (url, posts)[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
