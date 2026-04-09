@@ -1,13 +1,62 @@
-[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:10:39: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : models.Types.Subscription[0m
-[0m[[0m[31merror[0m] [0m[0m    (which expands to)  (String, String)[0m
-[0m[[0m[31merror[0m] [0m[0m required: String[0m
-[0m[[0m[31merror[0m] [0m[0m      val posts = FileIO.downloadFeed(url)[0m
-[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:11:8: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : models.Types.Subscription[0m
-[0m[[0m[31merror[0m] [0m[0m    (which expands to)  (String, String)[0m
-[0m[[0m[31merror[0m] [0m[0m required: String[0m
-[0m[[0m[31merror[0m] [0m[0m      (url, posts)[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/FileIO.scala:2:8: not found: object Models[0m
+[0m[[0m[31merror[0m] [0m[0mimport Models._[0m
 [0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/FileIO.scala:10:33: not found: type Subscription[0m
+[0m[[0m[31merror[0m] [0m[0m  def readSubscriptions(): List[Subscription] = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Formatters.scala:1:8: not found: object Models[0m
+[0m[[0m[31merror[0m] [0m[0mimport Models._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Formatters.scala:12:23: not found: type Post[0m
+[0m[[0m[31merror[0m] [0m[0m  def formatPost(post:Post): String = {[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:1:15: object Types is not a member of package models[0m
+[0m[[0m[31merror[0m] [0m[0mimport models.Types._[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:6:29: not found: value Models[0m
+[0m[[0m[31merror[0m] [0m[0m    val subscriptions: List[Models.Subscription] = FileIO.readSubscriptions() // lista [(nombre,url)][0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:13:44: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m      val stringFeed = FileIO.downloadFeed(url) //pasa el feed de formato XML a string[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:1:8: not found: object Models[0m
+[0m[[0m[31merror[0m] [0m[0mimport Models._[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:10:50: not found: type Post[0m
+[0m[[0m[31merror[0m] [0m[0m    def parseRedditFeed(stringFeed:String): List[Post]={[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/Main.scala:17:8: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m      (url,posts.map(Formatters.formatPost).mkString("\n\n")) //(url,posts_string)[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:12:40: not found: type Post[0m
+[0m[[0m[31merror[0m] [0m[0m        def extractPost(child:Jvalue): Post ={[0m
+[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:12:31: not found: type Jvalue[0m
+[0m[[0m[31merror[0m] [0m[0m        def extractPost(child:Jvalue): Post ={[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:20:33: not found: value Instant[0m
+[0m[[0m[31merror[0m] [0m[0m            val formattedDate = Instant.ofEpochSecond(createdUtc)[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:21:21: not found: value ZoneId[0m
+[0m[[0m[31merror[0m] [0m[0m                .at(ZoneId.of("UTC"))[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:22:25: not found: value DateTimeFormatter[0m
+[0m[[0m[31merror[0m] [0m[0m                .format(DateTimeFormatter.ofPattern("yyy-MMM-ddd HH:mm:ss"))[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:24:13: not found: value Models[0m
+[0m[[0m[31merror[0m] [0m[0m            Models.createPost(subreddit,title,selftext,formattedDate)[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:28:13: not found: value jsonfFeed[0m
+[0m[[0m[31merror[0m] [0m[0m            jsonfFeed \ "data" \ "children"[0m
+[0m[[0m[31merror[0m] [0m[0m            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:33:9: not found: value Try[0m
+[0m[[0m[31merror[0m] [0m[0m        Try(parse(stringFeed))[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/maneuwu/Documentos/PARADIGMAS/lab1/paradigmas26-lab1-g13/src/main/scala/parser.scala:41:24: not found: type Post[0m
+[0m[[0m[31merror[0m] [0m[0m            List.empty[Post][0m
+[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m19 errors found[0m

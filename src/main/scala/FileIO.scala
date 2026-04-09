@@ -1,5 +1,5 @@
 import scala.io.Source
-import models.Types._
+import Models._
 import org.json4s._
 import org.json4s.jackson.JsonMethods._
 
@@ -7,7 +7,7 @@ object FileIO {
   implicit val formats: Formats = DefaultFormats //json4 lo necesita para convertir de JSON a SCALA
   // Pure function to read subscriptions from a JSON file
   //funcion para desmenuzar las cosas JSON
-  def readSubscriptions(): List[Subscription] = {
+  def readSubscriptions(): Option[List[Subscription]] = {
 
     val toParse = Source.fromFile("subscriptions.json") //abro el archivo y lo leo
 
@@ -39,7 +39,7 @@ object FileIO {
   }
 
   // Pure function to download JSON feed from a URL
-  def downloadFeed(url: String): String = {
+  def downloadFeed(url: String): Option[String] = {
     val source = Source.fromURL(url)
     source.mkString
   }
